@@ -1,0 +1,12 @@
+---
+  - name: exmaple of using variable with Dictionary
+    hosts: webservers
+    vars:
+      students:
+        Rahul: 'India'
+        Rohit: 'Canada'
+        Tara: 'Germany'
+    tasks:
+    - name: Dictionary Example
+      debug:
+        msg: "{{ students }}"

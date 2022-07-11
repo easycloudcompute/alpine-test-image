@@ -1,0 +1,6 @@
+---
+  - name: playbook to run a shells script
+    hosts: all
+    tasks:
+      - name: execute shell script
+        script: hello.sh

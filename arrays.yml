@@ -1,0 +1,14 @@
+---
+- name: exmaple of using variable with array
+  hosts: webservers
+  vars:
+    students:
+      - rahul
+      - joy
+      - tara
+      - rohit
+
+  tasks:
+  - name: print array
+    debug:
+      msg: "{{ students [2] }}"

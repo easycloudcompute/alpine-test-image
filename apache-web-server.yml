@@ -1,0 +1,41 @@
+---
+  - name: configure apache web server
+    hosts: 192.168.1.104
+    tasks:
+      - name: install apache packages
+        yum:
+          name: httpd
+          state: present
+        tags:
+        - tag-1
+      - name: Start apache service
+        service:
+          name: httpd
+          state: started
+        tags:
+        - tag-2
+      - name: add firewall rules
+        firewalld:
+          port: 80/tcp
+          permanent: true
+          state: enabled
+        tags:
+        - tag-3
+      - name : reload firewall config for new rule
+        systemd:
+          name: firewalld
+          state: reloaded
+        tags:
+        - tag-3
+      - name: copy index file to apache directory
+        copy:
+          src: /tmp/index.html
+          dest: /var/www/html/
+        tags:
+        - tag-4
+      - name: restart apache service
+        service:
+          name: httpd
+          state: restarted
+        tags:
+        - tag-5

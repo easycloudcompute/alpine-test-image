@@ -1,0 +1,9 @@
+---
+  - name: replace word enforcing with disabled in SELINUX config file
+    hosts: webservers
+    tasks:
+      - name: change SELINUX to disabled
+        replace:
+            path: /etc/selinux/config
+            regexp: 'enforcing'
+            replace: 'disabled'

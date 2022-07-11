@@ -1,0 +1,9 @@
+---
+  - name: print the below message using variable greeting
+    hosts: webservers
+    vars:
+      greeting: Hello to all my beautiful people
+    tasks:
+      - name: Basic variable usage
+        debug:
+        msg: "{{ greeting }}"

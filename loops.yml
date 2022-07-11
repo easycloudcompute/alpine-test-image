@@ -1,0 +1,10 @@
+---
+  - name: installs multiple packages using loops
+    hosts: all
+    tasks:
+      - name: intalling multiple packages
+        yum:
+          name:
+            - nginx
+            - postgresql
+          state: present

@@ -1,0 +1,6 @@
+---
+  - name: simple ping test for all nodes
+    hosts: webservers
+    tasks:
+      - name: ping test running
+        ping:

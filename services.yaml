@@ -1,0 +1,6 @@
+---
+  - name: stop chronyd service for specific node
+    hosts: webservers
+    tasks:
+      - service: name=chronyd state=stopped
+        when: ansible_host == "192.168.1.105"
